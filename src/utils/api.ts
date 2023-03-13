@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useQuery } from "react-query";
 
 export type Caravan = {
     location: string;
@@ -18,7 +19,17 @@ type CaravanResponse = {
     items: Caravan[];
 };
 
-export async function getCaravans(): Promise<CaravanResponse> {
+async function fetchCaravans(): Promise<CaravanResponse> {
     const response = await axios.get("/api/data");
     return response.data as CaravanResponse;
+}
+
+export function useCaravans() {
+    const { data, isLoading, isError } = useQuery("caravans", fetchCaravans);
+    return {
+        isLoadingCaravans: isLoading,
+        isErrorCaravans: isError,
+        caravans: data?.items || [],
+        caravansCount: data?.count || 0,
+    };
 }
