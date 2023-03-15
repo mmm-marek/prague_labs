@@ -7,7 +7,6 @@ export const StyledCaravanCard = styled.div`
     border-radius: 0.5rem;
     border: 1px solid ${({ theme }) => theme.colors.beige};
     overflow: hidden;
-    color: ${({ theme }) => theme.colors.darkBlue};
 `;
 
 export const StyledContent = styled.div`

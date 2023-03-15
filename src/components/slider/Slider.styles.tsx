@@ -6,10 +6,10 @@ export const StyledTrack = styled.div`
     bottom: 0;
     background: ${(props: any) =>
         props.index === 2
-            ? "#EDEAE3"
+            ? props.theme.colors.beige
             : props.index === 1
-            ? "#119383"
-            : "#EDEAE3"};
+            ? props.theme.colors.green
+            : props.theme.colors.beige};
     border-radius: 999px;
 `;
 

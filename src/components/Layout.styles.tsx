@@ -4,7 +4,9 @@ export const Heading = styled.h1`
     margin: 0;
 `;
 
-export const PageWrapper = styled.div``;
+export const PageWrapper = styled.div`
+    color: ${({ theme }) => theme.colors.darkBlue};
+`;
 
 export const Container = styled.div`
     padding: 22px 16px 22px 16px;
