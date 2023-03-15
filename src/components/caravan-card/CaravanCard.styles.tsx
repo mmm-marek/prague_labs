@@ -5,9 +5,9 @@ export const StyledCaravanCard = styled.div`
     width: 21.4rem;
     height: 23.75rem;
     border-radius: 0.5rem;
-    border: 1px solid #edeae3;
+    border: 1px solid ${({ theme }) => theme.colors.beige};
     overflow: hidden;
-    color: #1f2244;
+    color: ${({ theme }) => theme.colors.darkBlue};
 `;
 
 export const StyledContent = styled.div`
@@ -16,11 +16,11 @@ export const StyledContent = styled.div`
 
 export const StyledName = styled.div`
     width: 100%;
-    border-bottom: 1px solid #edeae3;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.beige};
     label {
         font-size: 0.75rem;
         font-weight: bold;
-        color: #ff5e55;
+        color: ${({ theme }) => theme.colors.orange};
         text-transform: uppercase;
     }
     h2 {
@@ -35,7 +35,7 @@ export const StyledImage = styled(Image)`
 
 export const StyledInfo = styled.div`
     padding: 0.6rem 0 0.8rem 0;
-    border-bottom: 1px solid #edeae3;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.beige};
 `;
 
 export const StyledLocation = styled.div`
@@ -62,7 +62,7 @@ export const StyledPriceInfo = styled.div`
     padding-top: 0.7rem;
 
     label {
-        color: #9c8c8c;
+        color: ${({ theme }) => theme.colors.darkGrey};
     }
 `;
 
