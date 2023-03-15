@@ -5,7 +5,7 @@ export type Caravan = {
     location: string;
     instantBookable: boolean;
     name: string;
-    passengerCapacity: number;
+    passengersCapacity: number;
     sleepCapacity: number;
     price: number;
     vehicleType: string;
