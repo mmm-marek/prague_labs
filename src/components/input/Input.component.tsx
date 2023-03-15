@@ -5,6 +5,7 @@ import {
 } from "./Input.styles";
 
 type InputProps = {
+    id: string;
     value: number;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     min: number;
@@ -20,10 +21,12 @@ export const Input = ({
     min,
     max,
     label,
+    id,
 }: InputProps) => {
     return (
         <StyledInputContainer>
             <StyledInput
+                id={id}
                 type="text"
                 inputMode="numeric"
                 placeholder={placeholder}
@@ -32,7 +35,7 @@ export const Input = ({
                 min={min}
                 max={max}
             />
-            {label && <StyledInputLabel>{label}</StyledInputLabel>}
+            {label && <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>}
         </StyledInputContainer>
     );
 };
