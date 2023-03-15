@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
 
 export const StyledCheckbox = styled.div`
     display: flex;
@@ -9,7 +9,7 @@ export const StyledCheckbox = styled.div`
     padding: 0.75rem;
     border-radius: 0.5rem;
     cursor: pointer;
-    ${({ checked, theme }: { checked: boolean; theme: any }) =>
+    ${({ checked, theme }: { checked: boolean; theme: DefaultTheme }) =>
         checked
             ? `
             border: 2px solid ${theme.colors.green};
