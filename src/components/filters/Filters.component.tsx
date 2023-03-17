@@ -15,26 +15,24 @@ import {
 type FiltersProps = {
     onPriceChange?: ([min, max]: [number, number]) => void;
     onCaravanTypeChange: (caravanType: VehicleType) => void;
-    onImmidiateBookingChange?: (immidiateBooking: boolean) => void;
+    onImmidiateBookingChange: (selectedValue: string) => void;
     caravanTypes: {
         checked: boolean;
         value: VehicleType;
         title: string;
         description: string;
     }[];
+    dropdownOptions: { value: string; label: string }[];
 };
 
 export const Filters = ({
     caravanTypes,
     onCaravanTypeChange,
+    onImmidiateBookingChange,
+    dropdownOptions,
 }: FiltersProps) => {
     const minPrice = 100;
     const maxPrice = 1000;
-
-    const dropdownOptions = [
-        { value: "yes", label: "Ano" },
-        { value: "no", label: "Ne" },
-    ];
 
     return (
         <StyledFilters>
@@ -88,9 +86,9 @@ export const Filters = ({
                     <Icon name="bolt" />
                 </StyledLabel>
                 <Dropdown
-                    options={dropdownOptions}
-                    onChange={() => {}}
                     value={dropdownOptions[0]}
+                    options={dropdownOptions}
+                    onChange={(e) => onImmidiateBookingChange(e.value)}
                 />
             </StyledFilterContainer>
         </StyledFilters>

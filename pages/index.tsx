@@ -48,13 +48,13 @@ const Home = () => {
     const [immidiateBooking, setImmidiateBooking] = useState(true);
 
     const dropdownOptions = [
-        { value: true, label: "Ano" },
-        { value: false, label: "Ne" },
+        { value: "yes", label: "Ano" },
+        { value: "no", label: "Ne" },
     ];
 
     function handleCaravanTypeChange(clickedCaravanType: VehicleType) {
-        setCaravanTypes(
-            caravanTypes.map((caravanType) => ({
+        setCaravanTypes((currentCaravanTypes) =>
+            currentCaravanTypes.map((caravanType) => ({
                 ...caravanType,
                 checked:
                     caravanType.value === clickedCaravanType
@@ -62,6 +62,10 @@ const Home = () => {
                         : caravanType.checked,
             }))
         );
+    }
+
+    function handleImmidiateBookingChange(selectedValue: string) {
+        setImmidiateBooking(selectedValue === "yes");
     }
 
     if (isLoadingCaravans) return <div>Loading...</div>;
@@ -79,7 +83,9 @@ const Home = () => {
                 </Container>
                 <Filters
                     caravanTypes={caravanTypes}
+                    dropdownOptions={dropdownOptions}
                     onCaravanTypeChange={handleCaravanTypeChange}
+                    onImmidiateBookingChange={handleImmidiateBookingChange}
                 />
                 <Container>
                     <CaravanList
