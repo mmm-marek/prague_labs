@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 
+export type VehicleType = "Campervan" | "Alcove" | "BuiltIn" | "Intergrated";
+
 export type Caravan = {
     location: string;
     instantBookable: boolean;
@@ -8,7 +10,7 @@ export type Caravan = {
     passengersCapacity: number;
     sleepCapacity: number;
     price: number;
-    vehicleType: string;
+    vehicleType: VehicleType;
     toilet: boolean;
     shower: boolean;
     pictures: string[];
