@@ -26,5 +26,6 @@ export const StyledThumb = styled.div`
 export const StyledSlider = styled(ReactSlider)`
     width: 20.5rem;
     height: 0.25rem;
-    margin: 1.625rem 0;
+    margin-top: 0.625rem;
+    margin-bottom: 1.625rem;
 `;

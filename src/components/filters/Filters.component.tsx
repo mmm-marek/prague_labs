@@ -7,6 +7,7 @@ import { Slider } from "../slider/Slider.component";
 import {
     StyledCheckboxGrid,
     StyledFilterContainer,
+    StyledFilters,
     StyledInputContainer,
     StyledLabel,
 } from "./Filters.styles";
@@ -51,7 +52,7 @@ export const Filters = ({ onCaravanTypeChange }: FiltersProps) => {
     ];
 
     return (
-        <div>
+        <StyledFilters>
             <StyledFilterContainer>
                 <StyledLabel>Cena za den</StyledLabel>
                 <Slider
@@ -105,6 +106,6 @@ export const Filters = ({ onCaravanTypeChange }: FiltersProps) => {
                     value={dropdownOptions[0]}
                 />
             </StyledFilterContainer>
-        </div>
+        </StyledFilters>
     );
 };
