@@ -10,8 +10,8 @@ type InputProps = {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     min: number;
     max: number;
-    placeholder: string;
     label: string;
+    placeholder?: string;
 };
 
 export const Input = ({
