@@ -7,6 +7,10 @@ export const StyledCaravanCard = styled.div`
     border-radius: 0.5rem;
     border: 1px solid ${({ theme }) => theme.colors.beige};
     overflow: hidden;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
+        width: 24.5rem;
+    }
 `;
 
 export const StyledContent = styled.div`
@@ -28,8 +32,16 @@ export const StyledName = styled.div`
     }
 `;
 
+export const StyledImageContainer = styled.div`
+    position: relative;
+    width: 100%;
+    height: 11.875rem;
+`;
+
 export const StyledImage = styled(Image)`
     object-fit: cover;
+    width: 100%;
+    height: 100%;
 `;
 
 export const StyledInfo = styled.div`

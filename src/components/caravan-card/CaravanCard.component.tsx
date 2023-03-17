@@ -11,6 +11,7 @@ import {
     StyledAttribute,
     StyledPriceInfo,
     StyledPrice,
+    StyledImageContainer,
 } from "./CaravanCard.styles";
 
 type CaravanCardProps = {
@@ -33,13 +34,15 @@ export const CaravanCard = ({
 }: CaravanCardProps) => {
     return (
         <StyledCaravanCard>
-            <StyledImage
-                src={pictures[0]}
-                width={343}
-                height={190}
-                alt="caravan image"
-                loader={() => pictures[0]}
-            />
+            <StyledImageContainer>
+                <StyledImage
+                    src={pictures[0]}
+                    alt="caravan image"
+                    loader={() => pictures[0]}
+                    objectFit="cover"
+                    layout="fill"
+                />
+            </StyledImageContainer>
             <StyledContent>
                 <StyledName>
                     <label>{vehicleType}</label>
