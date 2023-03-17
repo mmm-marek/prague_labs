@@ -1,23 +1,71 @@
+import { useState } from "react";
 import Head from "next/head";
-import { useCaravans } from "../src/utils/api";
+import { useCaravans, VehicleType } from "../src/utils/api";
 import { Container, PageWrapper } from "../src/components/Layout.styles";
 import { Logo } from "../src/components/logo/Logo.component";
-import { PriceFilter } from "../src/components/price-filter/PriceFilter.component";
-import { CaravanCard } from "../src/components/caravan-card/CaravanCard.component";
 import { Button } from "../src/components/button/Button.component";
-import { Checkbox } from "../src/components/checkbox/Checkbox.component";
 import { Filters } from "../src/components/filters/Filters.component";
 import { CaravanList } from "../src/components/caravan-list/CaravanList.component";
 
 const Home = () => {
     const { caravans, caravansCount, isLoadingCaravans, isErrorCaravans } =
         useCaravans();
+
+    const minPrice = 100;
+    const maxPrice = 1000;
+
+    const [currentMinPrice, setCurrentMinPrice] = useState(minPrice);
+    const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice);
+
+    const [caravanTypes, setCaravanTypes] = useState([
+        {
+            checked: false,
+            value: "Campervan" as VehicleType,
+            title: "Campervan",
+            description: "Obytka s rozměry osobáku, se kterou dojedete všude.",
+        },
+        {
+            checked: false,
+            value: "Intergrated" as VehicleType,
+            title: "Integrál",
+            description: "Král mezi karavany. Luxus na kolech.",
+        },
+        {
+            checked: false,
+            value: "Aove" as VehicleType,
+            title: "Vestavba",
+            description: "Celý byt geniálně poskládaný do dodávky.",
+        },
+        {
+            checked: false,
+            value: "BuiltIn" as VehicleType,
+            title: "Přívěs",
+            description:
+                "Tažný karavan za vaše auto. Od kapkovitých až po rodinné.",
+        },
+    ]);
+
+    const [immidiateBooking, setImmidiateBooking] = useState(true);
+
+    const dropdownOptions = [
+        { value: true, label: "Ano" },
+        { value: false, label: "Ne" },
+    ];
+
+    function handleCaravanTypeChange(clickedCaravanType: VehicleType) {
+        setCaravanTypes(
+            caravanTypes.map((caravanType) => ({
+                ...caravanType,
+                checked:
+                    caravanType.value === clickedCaravanType
+                        ? !caravanType.checked
+                        : caravanType.checked,
+            }))
+        );
+    }
+
     if (isLoadingCaravans) return <div>Loading...</div>;
 
-    const options = [
-        { value: "yes", label: "Ano" },
-        { value: "no", label: "Ne" },
-    ];
     return (
         <>
             <Head>
@@ -29,7 +77,10 @@ const Home = () => {
                 <Container>
                     <Logo />
                 </Container>
-                <Filters />
+                <Filters
+                    caravanTypes={caravanTypes}
+                    onCaravanTypeChange={handleCaravanTypeChange}
+                />
                 <Container>
                     <CaravanList
                         caravans={caravans}

@@ -14,37 +14,22 @@ import {
 
 type FiltersProps = {
     onPriceChange?: ([min, max]: [number, number]) => void;
-    onCaravanTypeChange?: (caravanType: VehicleType) => void;
+    onCaravanTypeChange: (caravanType: VehicleType) => void;
     onImmidiateBookingChange?: (immidiateBooking: boolean) => void;
+    caravanTypes: {
+        checked: boolean;
+        value: VehicleType;
+        title: string;
+        description: string;
+    }[];
 };
 
-export const Filters = ({ onCaravanTypeChange }: FiltersProps) => {
+export const Filters = ({
+    caravanTypes,
+    onCaravanTypeChange,
+}: FiltersProps) => {
     const minPrice = 100;
     const maxPrice = 1000;
-
-    const caravanTypes = [
-        {
-            value: "Campervan",
-            title: "Campervan",
-            description: "Obytka s rozměry osobáku, se kterou dojedete všude.",
-        },
-        {
-            value: "Intergrated",
-            title: "Integrál",
-            description: "Král mezi karavany. Luxus na kolech.",
-        },
-        {
-            value: "Alcove",
-            title: "Vestavba",
-            description: "Celý byt geniálně poskládaný do dodávky.",
-        },
-        {
-            value: "BuiltIn",
-            title: "Přívěs",
-            description:
-                "Tažný karavan za vaše auto. Od kapkovitých až po rodinné.",
-        },
-    ];
 
     const dropdownOptions = [
         { value: "yes", label: "Ano" },
@@ -89,8 +74,10 @@ export const Filters = ({ onCaravanTypeChange }: FiltersProps) => {
                             id={caravanType.value}
                             title={caravanType.title}
                             description={caravanType.description}
-                            checked={false}
-                            onChange={() => {}}
+                            checked={caravanType.checked}
+                            onChange={() =>
+                                onCaravanTypeChange(caravanType.value)
+                            }
                         />
                     ))}
                 </StyledCheckboxGrid>

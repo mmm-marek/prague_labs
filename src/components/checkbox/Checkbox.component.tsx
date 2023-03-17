@@ -29,7 +29,7 @@ export const Checkbox = ({
                 checked={checked}
                 onChange={onChange}
             />
-            <StyledCheckboxInfo>
+            <StyledCheckboxInfo htmlFor={id}>
                 <StyledCheckboxTitle>{title}</StyledCheckboxTitle>
                 <StyledCheckboxDescription>
                     {description}
