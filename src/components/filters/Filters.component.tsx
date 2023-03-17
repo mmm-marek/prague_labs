@@ -13,7 +13,7 @@ import {
 } from "./Filters.styles";
 
 type FiltersProps = {
-    onPriceChange?: ([min, max]: [number, number]) => void;
+    onPriceIntervalChange: (interval: number[]) => void;
     onCaravanTypeChange: (caravanType: VehicleType) => void;
     onImmidiateBookingChange: (selectedValue: string) => void;
     caravanTypes: {
@@ -23,16 +23,60 @@ type FiltersProps = {
         description: string;
     }[];
     dropdownOptions: { value: string; label: string }[];
+    minPrice: number;
+    maxPrice: number;
+    currentPriceInterval: [number, number];
 };
 
 export const Filters = ({
     caravanTypes,
     onCaravanTypeChange,
     onImmidiateBookingChange,
+    onPriceIntervalChange,
     dropdownOptions,
+    minPrice,
+    maxPrice,
+    currentPriceInterval,
 }: FiltersProps) => {
-    const minPrice = 100;
-    const maxPrice = 1000;
+    const currentMinPrice = currentPriceInterval[0];
+    const currentMaxPrice = currentPriceInterval[1];
+
+    function handleNewMinPrice(newMinPrice: string) {
+        if (isNaN(Number(newMinPrice))) return;
+
+        const newMinPriceNumber = Number(newMinPrice);
+
+        if (newMinPriceNumber > currentMaxPrice) {
+            // switch values of the interval
+            onPriceIntervalChange([currentMaxPrice, newMinPriceNumber]);
+            return;
+        }
+
+        if (newMinPriceNumber < minPrice) {
+            onPriceIntervalChange([minPrice, currentMaxPrice]);
+            return;
+        }
+
+        onPriceIntervalChange([newMinPriceNumber, currentMaxPrice]);
+    }
+
+    function handleNewMaxPrice(newMaxPrice: string) {
+        if (isNaN(Number(newMaxPrice))) return;
+
+        const newMaxPriceNumber = Number(newMaxPrice);
+
+        if (newMaxPriceNumber < currentMinPrice) {
+            onPriceIntervalChange([newMaxPriceNumber, currentMinPrice]);
+            return;
+        }
+
+        if (newMaxPriceNumber > maxPrice) {
+            onPriceIntervalChange([currentMinPrice, maxPrice]);
+            return;
+        }
+
+        onPriceIntervalChange([currentMinPrice, newMaxPriceNumber]);
+    }
 
     return (
         <StyledFilters>
@@ -41,8 +85,8 @@ export const Filters = ({
                 <Slider
                     min={minPrice}
                     max={maxPrice}
-                    onAfterChange={() => {}}
-                    value={[minPrice, maxPrice]}
+                    onAfterChange={(value) => onPriceIntervalChange(value)}
+                    value={currentPriceInterval}
                 />
                 <StyledInputContainer>
                     <Input
@@ -50,16 +94,16 @@ export const Filters = ({
                         label="Kč"
                         min={minPrice}
                         max={maxPrice}
-                        onChange={() => {}}
-                        value={100}
+                        onChange={(e) => handleNewMinPrice(e.target.value)}
+                        value={currentPriceInterval[0]}
                     />
                     <Input
                         id="maxPrice"
                         label="Kč"
                         min={minPrice}
                         max={maxPrice}
-                        onChange={() => {}}
-                        value={1000}
+                        onChange={(e) => handleNewMaxPrice(e.target.value)}
+                        value={currentPriceInterval[1]}
                     />
                 </StyledInputContainer>
             </StyledFilterContainer>

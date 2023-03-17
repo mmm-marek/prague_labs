@@ -11,12 +11,10 @@ const Home = () => {
     const { caravans, caravansCount, isLoadingCaravans, isErrorCaravans } =
         useCaravans();
 
-    const minPrice = 100;
-    const maxPrice = 1000;
-
-    const [currentMinPrice, setCurrentMinPrice] = useState(minPrice);
-    const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice);
-
+    const [currentPriceInterval, setCurrentPriceInterval] = useState<
+        [number, number]
+    >([1620, 7000]);
+    const [immidiateBooking, setImmidiateBooking] = useState(true);
     const [caravanTypes, setCaravanTypes] = useState([
         {
             checked: false,
@@ -45,8 +43,6 @@ const Home = () => {
         },
     ]);
 
-    const [immidiateBooking, setImmidiateBooking] = useState(true);
-
     const dropdownOptions = [
         { value: "yes", label: "Ano" },
         { value: "no", label: "Ne" },
@@ -68,6 +64,18 @@ const Home = () => {
         setImmidiateBooking(selectedValue === "yes");
     }
 
+    function handlePriceIntervalChange(interval: number[]) {
+        if (validatePriceInterval(interval)) {
+            setCurrentPriceInterval(interval);
+        }
+    }
+
+    function validatePriceInterval(
+        interval: number[]
+    ): interval is [number, number] {
+        return interval.length === 2;
+    }
+
     if (isLoadingCaravans) return <div>Loading...</div>;
 
     return (
@@ -82,6 +90,10 @@ const Home = () => {
                     <Logo />
                 </Container>
                 <Filters
+                    onPriceIntervalChange={handlePriceIntervalChange}
+                    minPrice={100}
+                    maxPrice={10000}
+                    currentPriceInterval={currentPriceInterval}
                     caravanTypes={caravanTypes}
                     dropdownOptions={dropdownOptions}
                     onCaravanTypeChange={handleCaravanTypeChange}
