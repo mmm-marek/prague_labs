@@ -13,5 +13,8 @@ declare module "styled-components" {
             greenDark: string;
             lightGrey: string;
         };
+        breakpoints: {
+            xs: string;
+        };
     }
 }

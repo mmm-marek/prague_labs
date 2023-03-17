@@ -12,7 +12,7 @@ export const Container = styled.div`
     padding: 22px 16px 22px 16px;
     max-width: 1240px;
 
-    @media (min-width: 400px) {
+    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
         padding: 22px 100px 22px 100px;
     }
 `;
@@ -27,5 +27,8 @@ export const theme = {
         green: "#119383",
         greenDark: "#0F7A6B",
         lightGrey: "#1F224433",
+    },
+    breakpoints: {
+        xs: "400px",
     },
 };
