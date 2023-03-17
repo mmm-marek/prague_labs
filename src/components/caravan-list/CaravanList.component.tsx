@@ -12,7 +12,7 @@ export const CaravanList = ({ caravans }: CaravanListProps) => {
         <StyledCaravanList>
             {caravans.map((caravan) => (
                 <CaravanCard
-                    key={`${caravan.name}+${caravan.location}`}
+                    key={`${caravan.name}+${caravan.location}+${caravan.price}+${caravan.vehicleType}+${caravan.pictures[0]}`}
                     caravan={caravan}
                 />
             ))}

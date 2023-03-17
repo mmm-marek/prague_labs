@@ -41,6 +41,7 @@ export const CaravanCard = ({
                     loader={() => pictures[0]}
                     objectFit="cover"
                     layout="fill"
+                    unoptimized
                 />
             </StyledImageContainer>
             <StyledContent>

@@ -15,7 +15,7 @@ export const Dropdown = ({ options, onChange, value }: DropdownProps) => {
             options={options}
             onChange={onChange}
             placeholder="Select an option"
-            arrowOpen={<Icon name="arrow" rotateAngle={180} />}
+            arrowOpen={<Icon name="arrow" rotateangle={180} />}
             arrowClosed={<Icon name="arrow" />}
         />
     );
