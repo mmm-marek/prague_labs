@@ -14,16 +14,17 @@ export const StyledTrack = styled.div`
 `;
 
 export const StyledThumb = styled.div`
-    height: 24px;
-    line-height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    width: 1.5rem;
     background-color: #119383;
     border-radius: 50%;
     cursor: grab;
-    top: -10px;
+    top: -0.625rem;
 `;
 
 export const StyledSlider = styled(ReactSlider)`
-    width: 328px;
-    height: 4px;
+    width: 20.5rem;
+    height: 0.25rem;
+    margin: 1.625rem 0;
 `;
