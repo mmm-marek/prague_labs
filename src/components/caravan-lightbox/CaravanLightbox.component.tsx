@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import Lightbox, { ImagesListType } from "react-spring-lightbox";
+import { useState } from "react";
+import type { ImagesListType } from "react-spring-lightbox";
+import { StyledButton, StyledLightbox } from "./CaravanLightbox.styles";
 
 type CaravanLightboxProps = {
     images: ImagesListType;
@@ -29,13 +30,23 @@ export const CaravanLightbox = ({
     }
 
     return (
-        <Lightbox
+        <StyledLightbox
             isOpen={isOpen}
             onPrev={gotoPrevious}
             onNext={gotoNext}
             images={images}
             currentIndex={currentImageIndex}
             onClose={handleClose}
+            renderNextButton={() => {
+                return currentImageIndex !== images.length - 1 ? (
+                    <StyledButton onClick={gotoNext}>&gt;</StyledButton>
+                ) : null;
+            }}
+            renderPrevButton={() => {
+                return currentImageIndex !== 0 ? (
+                    <StyledButton onClick={gotoPrevious}>&lt;</StyledButton>
+                ) : null;
+            }}
         />
     );
 };
