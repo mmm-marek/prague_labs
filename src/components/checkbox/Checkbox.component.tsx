@@ -1,5 +1,5 @@
 import {
-    StyledCheckbox,
+    StyledCheckboxContainer,
     StyledCheckboxInfo,
     StyledCheckboxTitle,
     StyledCheckboxDescription,
@@ -22,7 +22,7 @@ export const Checkbox = ({
     onChange,
 }: CheckboxProps) => {
     return (
-        <StyledCheckbox checked={checked} htmlFor={id}>
+        <StyledCheckboxContainer checked={checked} htmlFor={id}>
             <StyledInput
                 type="checkbox"
                 id={id}
@@ -35,6 +35,6 @@ export const Checkbox = ({
                     {description}
                 </StyledCheckboxDescription>
             </StyledCheckboxInfo>
-        </StyledCheckbox>
+        </StyledCheckboxContainer>
     );
 };

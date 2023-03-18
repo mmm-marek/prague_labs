@@ -1,7 +1,7 @@
 import { Caravan } from "../../utils/api";
 import { Icon } from "../icon/Icon.component";
 import {
-    StyledCaravanCard,
+    StyledCaravanCardContainer,
     StyledContent,
     StyledName,
     StyledImage,
@@ -35,7 +35,7 @@ export const CaravanCard = ({
     onClick,
 }: CaravanCardProps) => {
     return (
-        <StyledCaravanCard onClick={onClick}>
+        <StyledCaravanCardContainer onClick={onClick}>
             <StyledImageContainer>
                 <StyledImage
                     src={pictures[0]}
@@ -74,6 +74,6 @@ export const CaravanCard = ({
                     </StyledPrice>
                 </StyledPriceInfo>
             </StyledContent>
-        </StyledCaravanCard>
+        </StyledCaravanCardContainer>
     );
 };

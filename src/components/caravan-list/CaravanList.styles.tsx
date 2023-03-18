@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCaravanList = styled.div`
+export const StyledCaravanListContainer = styled.div`
     width: 100%;
     display: grid;
     gap: 2rem;

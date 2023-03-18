@@ -1,6 +1,9 @@
 import type { Caravan } from "../../utils/api";
 import { CaravanCard } from "../caravan-card/CaravanCard.component";
-import { StyledCaravanList, StyledNoResults } from "./CaravanList.styles";
+import {
+    StyledCaravanListContainer,
+    StyledNoResults,
+} from "./CaravanList.styles";
 
 type CaravanListProps = {
     caravans: Caravan[];
@@ -15,7 +18,7 @@ export const CaravanList = ({ caravans, onCaravanClick }: CaravanListProps) => {
                     Nebyly nalezeny žádné karavany.
                 </StyledNoResults>
             ) : (
-                <StyledCaravanList>
+                <StyledCaravanListContainer>
                     {caravans.map((caravan) => (
                         <CaravanCard
                             onClick={() => onCaravanClick(caravan)}
@@ -23,7 +26,7 @@ export const CaravanList = ({ caravans, onCaravanClick }: CaravanListProps) => {
                             caravan={caravan}
                         />
                     ))}
-                </StyledCaravanList>
+                </StyledCaravanListContainer>
             )}
         </>
     );

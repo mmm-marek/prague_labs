@@ -7,7 +7,7 @@ import { Slider } from "../slider/Slider.component";
 import {
     StyledCheckboxGrid,
     StyledFilterContainer,
-    StyledFilters,
+    StyledFiltersSection,
     StyledInputContainer,
     StyledLabel,
     StyledWrapper,
@@ -82,7 +82,7 @@ export const Filters = ({
     }
 
     return (
-        <StyledFilters>
+        <StyledFiltersSection>
             <StyledWrapper>
                 <StyledFilterContainer>
                     <StyledLabel>Cena za den</StyledLabel>
@@ -140,6 +140,6 @@ export const Filters = ({
                     />
                 </StyledFilterContainer>
             </StyledWrapper>
-        </StyledFilters>
+        </StyledFiltersSection>
     );
 };
