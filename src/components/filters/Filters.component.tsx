@@ -22,6 +22,7 @@ type FiltersProps = {
         title: string;
         description: string;
     }[];
+    dropdownValue: { value: string; label: string };
     dropdownOptions: { value: string; label: string }[];
     minPrice: number;
     maxPrice: number;
@@ -33,6 +34,7 @@ export const Filters = ({
     onCaravanTypeChange,
     onImmidiateBookingChange,
     onPriceIntervalChange,
+    dropdownValue,
     dropdownOptions,
     minPrice,
     maxPrice,
@@ -130,7 +132,7 @@ export const Filters = ({
                     <Icon name="bolt" />
                 </StyledLabel>
                 <Dropdown
-                    value={dropdownOptions[0]}
+                    value={dropdownValue}
                     options={dropdownOptions}
                     onChange={(e) => onImmidiateBookingChange(e.value)}
                 />

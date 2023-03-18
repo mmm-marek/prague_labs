@@ -114,6 +114,11 @@ const Home = () => {
                     maxPrice={10000}
                     currentPriceInterval={currentPriceInterval}
                     caravanTypes={caravanTypes}
+                    dropdownValue={
+                        immidiateBooking
+                            ? dropdownOptions[0]
+                            : dropdownOptions[1]
+                    }
                     dropdownOptions={dropdownOptions}
                     onCaravanTypeChange={handleCaravanTypeChange}
                     onImmidiateBookingChange={handleImmidiateBookingChange}
