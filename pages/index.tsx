@@ -100,7 +100,6 @@ const Home = () => {
     }
 
     function handleCloseLightbox() {
-        console.log("closed");
         setLightboxIsOpen(false);
         setLightboxImages([]);
     }
@@ -112,7 +111,6 @@ const Home = () => {
                 alt: "caravan",
             }))
         );
-        console.log("opened");
         setLightboxIsOpen(true);
     }
 
