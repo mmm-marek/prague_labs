@@ -68,6 +68,7 @@ export const StyledInputContainer = styled.div`
 export const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
         flex-direction: row;
