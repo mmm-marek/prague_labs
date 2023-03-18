@@ -3,6 +3,8 @@ import ReactDropdown from "react-dropdown";
 
 export const StyledReactDropdown = styled(ReactDropdown)`
     cursor: pointer;
+    position: relative;
+
     &.is-open .Dropdown-control {
         border-color: ${({ theme }) => theme.colors.darkBlue};
     }
@@ -21,13 +23,14 @@ export const StyledReactDropdown = styled(ReactDropdown)`
         margin-top: 0.5rem;
         display: flex;
         gap: 0.25rem;
-        position: relative;
+        position: absolute;
         flex-direction: column;
     }
     .Dropdown-option {
         cursor: pointer;
         padding: 0.5rem;
         width: 11rem;
+        background-color: ${({ theme }) => theme.colors.white};
         border: 1px solid ${({ theme }) => theme.colors.beige};
         border-radius: 8px;
         &:hover {
