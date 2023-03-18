@@ -43,6 +43,8 @@ const Home = () => {
         },
     ]);
 
+    const [numberOfShownCaravans, setNumberOfShownCaravans] = useState(6);
+
     const dropdownOptions = [
         { value: "yes", label: "Ano" },
         { value: "no", label: "Ne" },
@@ -89,6 +91,12 @@ const Home = () => {
         }
     }
 
+    function loadMoreCaravans() {
+        setNumberOfShownCaravans(
+            (currentNumberOfShownCaravans) => currentNumberOfShownCaravans + 6
+        );
+    }
+
     function validatePriceInterval(
         interval: number[]
     ): interval is [number, number] {
@@ -125,13 +133,21 @@ const Home = () => {
                 />
                 <Container>
                     <CaravanList
-                        caravans={filteredCaravans}
+                        caravans={filteredCaravans.slice(
+                            0,
+                            numberOfShownCaravans
+                        )}
                         onCaravanClick={() => {}}
                     />
                 </Container>
-                <Container>
-                    <Button text="Načíst další" onClick={() => {}} />
-                </Container>
+                {numberOfShownCaravans < filteredCaravans.length && (
+                    <Container>
+                        <Button
+                            text="Načíst další"
+                            onClick={loadMoreCaravans}
+                        />
+                    </Container>
+                )}
             </PageWrapper>
         </>
     );
