@@ -22,14 +22,14 @@ export const Checkbox = ({
     onChange,
 }: CheckboxProps) => {
     return (
-        <StyledCheckbox checked={checked}>
+        <StyledCheckbox checked={checked} htmlFor={id}>
             <StyledInput
                 type="checkbox"
                 id={id}
                 checked={checked}
                 onChange={onChange}
             />
-            <StyledCheckboxInfo htmlFor={id}>
+            <StyledCheckboxInfo>
                 <StyledCheckboxTitle>{title}</StyledCheckboxTitle>
                 <StyledCheckboxDescription>
                     {description}

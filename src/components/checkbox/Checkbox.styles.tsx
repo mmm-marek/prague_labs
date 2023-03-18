@@ -1,6 +1,6 @@
 import styled, { DefaultTheme } from "styled-components";
 
-export const StyledCheckbox = styled.div`
+export const StyledCheckbox = styled.label`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@ export const StyledCheckbox = styled.div`
         `}
 `;
 
-export const StyledCheckboxInfo = styled.label`
+export const StyledCheckboxInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
