@@ -13,3 +13,9 @@ export const StyledCaravanList = styled.div`
         grid-template-columns: 1fr 1fr 1fr;
     }
 `;
+
+export const StyledNoResults = styled.p`
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+`;

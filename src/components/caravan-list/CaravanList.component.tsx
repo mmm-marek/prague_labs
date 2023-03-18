@@ -1,6 +1,6 @@
 import type { Caravan } from "../../utils/api";
 import { CaravanCard } from "../caravan-card/CaravanCard.component";
-import { StyledCaravanList } from "./CaravanList.styles";
+import { StyledCaravanList, StyledNoResults } from "./CaravanList.styles";
 
 type CaravanListProps = {
     caravans: Caravan[];
@@ -9,13 +9,21 @@ type CaravanListProps = {
 
 export const CaravanList = ({ caravans }: CaravanListProps) => {
     return (
-        <StyledCaravanList>
-            {caravans.map((caravan) => (
-                <CaravanCard
-                    key={`${caravan.name}+${caravan.location}+${caravan.price}+${caravan.vehicleType}+${caravan.pictures[0]}`}
-                    caravan={caravan}
-                />
-            ))}
-        </StyledCaravanList>
+        <>
+            {caravans.length === 0 ? (
+                <StyledNoResults>
+                    Nebyly nalezeny žádné karavany.
+                </StyledNoResults>
+            ) : (
+                <StyledCaravanList>
+                    {caravans.map((caravan) => (
+                        <CaravanCard
+                            key={`${caravan.name}+${caravan.location}+${caravan.price}+${caravan.vehicleType}+${caravan.pictures[0]}`}
+                            caravan={caravan}
+                        />
+                    ))}
+                </StyledCaravanList>
+            )}
+        </>
     );
 };
