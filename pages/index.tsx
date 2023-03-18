@@ -141,7 +141,7 @@ const Home = () => {
                     />
                 </Container>
                 {numberOfShownCaravans < filteredCaravans.length && (
-                    <Container>
+                    <Container flex center>
                         <Button
                             text="Načíst další"
                             onClick={loadMoreCaravans}

@@ -9,8 +9,13 @@ export const PageWrapper = styled.div`
 `;
 
 export const Container = styled.div`
+    display: ${({ flex }: { flex?: boolean; center?: boolean }) =>
+        flex ? "flex" : "block"};
+    justify-content: ${({ center }) => (center ? "center" : "flex-start")};
+    align-items: ${({ center }) => (center ? "center" : "flex-start")};
     padding: 1.375rem 1rem 1.375rem 1rem;
     max-width: 1440px;
+    margin: 0 auto;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         padding: 1.375rem 6.25rem 1.375rem 6.25rem;
