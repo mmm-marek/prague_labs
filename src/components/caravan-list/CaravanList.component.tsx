@@ -7,7 +7,7 @@ type CaravanListProps = {
     onCaravanClick: (caravan: Caravan) => void;
 };
 
-export const CaravanList = ({ caravans }: CaravanListProps) => {
+export const CaravanList = ({ caravans, onCaravanClick }: CaravanListProps) => {
     return (
         <>
             {caravans.length === 0 ? (
@@ -18,6 +18,7 @@ export const CaravanList = ({ caravans }: CaravanListProps) => {
                 <StyledCaravanList>
                     {caravans.map((caravan) => (
                         <CaravanCard
+                            onClick={() => onCaravanClick(caravan)}
                             key={`${caravan.name}+${caravan.location}+${caravan.price}+${caravan.vehicleType}+${caravan.pictures[0]}`}
                             caravan={caravan}
                         />

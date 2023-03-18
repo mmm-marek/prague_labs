@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
-import { useCaravans, VehicleType } from "../src/utils/api";
+import { Caravan, useCaravans, VehicleType } from "../src/utils/api";
 import { Container, PageWrapper } from "../src/components/Layout.styles";
 import { Logo } from "../src/components/logo/Logo.component";
 import { Button } from "../src/components/button/Button.component";
 import { Filters } from "../src/components/filters/Filters.component";
 import { CaravanList } from "../src/components/caravan-list/CaravanList.component";
+import { CaravanLightbox } from "../src/components/caravan-lightbox/CaravanLightbox.component";
 
 const Home = () => {
     const { caravans, caravansCount, isLoadingCaravans, isErrorCaravans } =
@@ -44,6 +45,13 @@ const Home = () => {
     ]);
 
     const [numberOfShownCaravans, setNumberOfShownCaravans] = useState(6);
+    const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
+    const [lightboxImages, setLightboxImages] = useState<
+        {
+            src: string;
+            alt: string;
+        }[]
+    >([]);
 
     const dropdownOptions = [
         { value: "yes", label: "Ano" },
@@ -89,6 +97,23 @@ const Home = () => {
         if (validatePriceInterval(interval)) {
             setCurrentPriceInterval(interval);
         }
+    }
+
+    function handleCloseLightbox() {
+        console.log("closed");
+        setLightboxIsOpen(false);
+        setLightboxImages([]);
+    }
+
+    function handleCaravanClick(caravan: Caravan) {
+        setLightboxImages(
+            caravan.pictures.map((picture) => ({
+                src: picture,
+                alt: "caravan",
+            }))
+        );
+        console.log("opened");
+        setLightboxIsOpen(true);
     }
 
     function loadMoreCaravans() {
@@ -137,7 +162,7 @@ const Home = () => {
                             0,
                             numberOfShownCaravans
                         )}
-                        onCaravanClick={() => {}}
+                        onCaravanClick={handleCaravanClick}
                     />
                 </Container>
                 {numberOfShownCaravans < filteredCaravans.length && (
@@ -148,6 +173,11 @@ const Home = () => {
                         />
                     </Container>
                 )}
+                <CaravanLightbox
+                    isOpen={lightboxIsOpen}
+                    images={lightboxImages}
+                    onClose={handleCloseLightbox}
+                />
             </PageWrapper>
         </>
     );

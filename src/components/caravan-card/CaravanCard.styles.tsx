@@ -7,6 +7,7 @@ export const StyledCaravanCard = styled.div`
     border-radius: 0.5rem;
     border: 1px solid ${({ theme }) => theme.colors.beige};
     overflow: hidden;
+    cursor: pointer;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
         width: 100%;

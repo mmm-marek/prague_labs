@@ -16,6 +16,7 @@ import {
 
 type CaravanCardProps = {
     caravan: Caravan;
+    onClick: () => void;
 };
 
 export const CaravanCard = ({
@@ -31,9 +32,10 @@ export const CaravanCard = ({
         toilet,
         instantBookable,
     },
+    onClick,
 }: CaravanCardProps) => {
     return (
-        <StyledCaravanCard>
+        <StyledCaravanCard onClick={onClick}>
             <StyledImageContainer>
                 <StyledImage
                     src={pictures[0]}
