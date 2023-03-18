@@ -8,6 +8,7 @@ export const StyledReactDropdown = styled(ReactDropdown)`
     &.is-open .Dropdown-control {
         border-color: ${({ theme }) => theme.colors.darkBlue};
     }
+
     .Dropdown-control {
         width: 11rem;
         height: 3rem;
@@ -16,9 +17,9 @@ export const StyledReactDropdown = styled(ReactDropdown)`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
+        padding-inline: 0.75rem;
     }
+
     .Dropdown-menu {
         margin-top: 0.5rem;
         display: flex;
@@ -26,6 +27,7 @@ export const StyledReactDropdown = styled(ReactDropdown)`
         position: absolute;
         flex-direction: column;
     }
+
     .Dropdown-option {
         cursor: pointer;
         padding: 0.5rem;

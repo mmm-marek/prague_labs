@@ -13,11 +13,11 @@ const Home = () => {
 
     const [currentPriceInterval, setCurrentPriceInterval] = useState<
         [number, number]
-    >([1620, 7000]);
+    >([100, 10000]);
     const [immidiateBooking, setImmidiateBooking] = useState(true);
     const [caravanTypes, setCaravanTypes] = useState([
         {
-            checked: false,
+            checked: true,
             value: "Campervan" as VehicleType,
             title: "Campervan",
             description: "Obytka s rozměry osobáku, se kterou dojedete všude.",
@@ -47,6 +47,25 @@ const Home = () => {
         { value: "yes", label: "Ano" },
         { value: "no", label: "Ne" },
     ];
+
+    const filteredCaravans = caravans.filter((caravan) => {
+        const caravanIsAffordable =
+            caravan.price >= currentPriceInterval[0] &&
+            caravan.price <= currentPriceInterval[1];
+        if (!caravanIsAffordable) return false;
+
+        const caravanIsOfSelectedType = caravanTypes.some(
+            (caravanType) =>
+                caravanType.checked && caravanType.value === caravan.vehicleType
+        );
+        if (!caravanIsOfSelectedType) return false;
+
+        const caravanIsAvailableForImmidiateBooking =
+            immidiateBooking === caravan.instantBookable;
+        if (!caravanIsAvailableForImmidiateBooking) return false;
+
+        return true;
+    });
 
     function handleCaravanTypeChange(clickedCaravanType: VehicleType) {
         setCaravanTypes((currentCaravanTypes) =>
@@ -101,7 +120,7 @@ const Home = () => {
                 />
                 <Container>
                     <CaravanList
-                        caravans={caravans}
+                        caravans={filteredCaravans}
                         onCaravanClick={() => {}}
                     />
                 </Container>
