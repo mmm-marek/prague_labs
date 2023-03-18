@@ -3,12 +3,16 @@ import styled from "styled-components";
 export const StyledFilters = styled.div`
     display: flex;
     flex-direction: column;
+    padding-inline: 1rem;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
         flex-direction: row;
-        padding-inline: 6.25rem;
         border-top: 1px solid ${({ theme }) => theme.colors.beige};
         border-bottom: 1px solid ${({ theme }) => theme.colors.beige};
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        padding-inline: 6.25rem;
     }
 `;
 
