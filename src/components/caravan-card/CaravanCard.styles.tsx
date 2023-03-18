@@ -9,7 +9,7 @@ export const StyledCaravanCard = styled.div`
     overflow: hidden;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
-        width: 24.5rem;
+        width: 100%;
     }
 `;
 

@@ -9,11 +9,11 @@ export const PageWrapper = styled.div`
 `;
 
 export const Container = styled.div`
-    padding: 22px 16px 22px 16px;
-    max-width: 1240px;
+    padding: 1.375rem 1rem 1.375rem 1rem;
+    max-width: 1440px;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
-        padding: 22px 100px 22px 100px;
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        padding: 1.375rem 6.25rem 1.375rem 6.25rem;
     }
 `;
 
@@ -30,5 +30,8 @@ export const theme = {
     },
     breakpoints: {
         xs: "400px",
+        sm: "600px",
+        md: "768px",
+        lg: "1024px",
     },
 };

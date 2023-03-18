@@ -17,8 +17,12 @@ export const StyledFilterContainer = styled.div`
     padding: 1.4rem 1.9rem 1.4rem 1rem;
     border-top: 1px solid ${({ theme }) => theme.colors.beige};
 
+    &:last-child {
+        border-bottom: 1px solid ${({ theme }) => theme.colors.beige};
+    }
+
     @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
-        padding-inline: 1.4rem;
+        padding-inline: 1rem;
         border-top: 0;
         border-right: 1px solid ${({ theme }) => theme.colors.beige};
 
@@ -55,4 +59,13 @@ export const StyledCheckboxGrid = styled.div`
 export const StyledInputContainer = styled.div`
     display: flex;
     gap: 1rem;
+`;
+
+export const StyledWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
+        flex-direction: row;
+    }
 `;

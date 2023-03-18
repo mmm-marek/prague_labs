@@ -10,6 +10,7 @@ import {
     StyledFilters,
     StyledInputContainer,
     StyledLabel,
+    StyledWrapper,
 } from "./Filters.styles";
 
 type FiltersProps = {
@@ -82,61 +83,63 @@ export const Filters = ({
 
     return (
         <StyledFilters>
-            <StyledFilterContainer>
-                <StyledLabel>Cena za den</StyledLabel>
-                <Slider
-                    min={minPrice}
-                    max={maxPrice}
-                    onAfterChange={(value) => onPriceIntervalChange(value)}
-                    value={currentPriceInterval}
-                />
-                <StyledInputContainer>
-                    <Input
-                        id="minPrice"
-                        label="Kč"
+            <StyledWrapper>
+                <StyledFilterContainer>
+                    <StyledLabel>Cena za den</StyledLabel>
+                    <Slider
                         min={minPrice}
                         max={maxPrice}
-                        onChange={(e) => handleNewMinPrice(e.target.value)}
-                        value={currentPriceInterval[0]}
+                        onAfterChange={(value) => onPriceIntervalChange(value)}
+                        value={currentPriceInterval}
                     />
-                    <Input
-                        id="maxPrice"
-                        label="Kč"
-                        min={minPrice}
-                        max={maxPrice}
-                        onChange={(e) => handleNewMaxPrice(e.target.value)}
-                        value={currentPriceInterval[1]}
-                    />
-                </StyledInputContainer>
-            </StyledFilterContainer>
-            <StyledFilterContainer>
-                <StyledLabel>Typ karavanu</StyledLabel>
-                <StyledCheckboxGrid>
-                    {caravanTypes.map((caravanType) => (
-                        <Checkbox
-                            key={caravanType.value}
-                            id={caravanType.value}
-                            title={caravanType.title}
-                            description={caravanType.description}
-                            checked={caravanType.checked}
-                            onChange={() =>
-                                onCaravanTypeChange(caravanType.value)
-                            }
+                    <StyledInputContainer>
+                        <Input
+                            id="minPrice"
+                            label="Kč"
+                            min={minPrice}
+                            max={maxPrice}
+                            onChange={(e) => handleNewMinPrice(e.target.value)}
+                            value={currentPriceInterval[0]}
                         />
-                    ))}
-                </StyledCheckboxGrid>
-            </StyledFilterContainer>
-            <StyledFilterContainer>
-                <StyledLabel>
-                    Okamžitá rezervace
-                    <Icon name="bolt" />
-                </StyledLabel>
-                <Dropdown
-                    value={dropdownValue}
-                    options={dropdownOptions}
-                    onChange={(e) => onImmidiateBookingChange(e.value)}
-                />
-            </StyledFilterContainer>
+                        <Input
+                            id="maxPrice"
+                            label="Kč"
+                            min={minPrice}
+                            max={maxPrice}
+                            onChange={(e) => handleNewMaxPrice(e.target.value)}
+                            value={currentPriceInterval[1]}
+                        />
+                    </StyledInputContainer>
+                </StyledFilterContainer>
+                <StyledFilterContainer>
+                    <StyledLabel>Typ karavanu</StyledLabel>
+                    <StyledCheckboxGrid>
+                        {caravanTypes.map((caravanType) => (
+                            <Checkbox
+                                key={caravanType.value}
+                                id={caravanType.value}
+                                title={caravanType.title}
+                                description={caravanType.description}
+                                checked={caravanType.checked}
+                                onChange={() =>
+                                    onCaravanTypeChange(caravanType.value)
+                                }
+                            />
+                        ))}
+                    </StyledCheckboxGrid>
+                </StyledFilterContainer>
+                <StyledFilterContainer>
+                    <StyledLabel>
+                        Okamžitá rezervace
+                        <Icon name="bolt" />
+                    </StyledLabel>
+                    <Dropdown
+                        value={dropdownValue}
+                        options={dropdownOptions}
+                        onChange={(e) => onImmidiateBookingChange(e.value)}
+                    />
+                </StyledFilterContainer>
+            </StyledWrapper>
         </StyledFilters>
     );
 };
