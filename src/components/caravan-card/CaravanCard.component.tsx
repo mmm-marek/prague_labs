@@ -40,7 +40,6 @@ export const CaravanCard = ({
                 <StyledImage
                     src={pictures[0]}
                     alt="caravan image"
-                    loader={() => pictures[0]}
                     objectFit="cover"
                     layout="fill"
                     unoptimized
