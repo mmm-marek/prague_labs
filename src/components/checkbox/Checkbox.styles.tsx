@@ -19,7 +19,7 @@ export const StyledCheckbox = styled.label`
         `}
 `;
 
-export const StyledCheckboxInfo = styled.div`
+export const StyledCheckboxInfo = styled.span`
     display: flex;
     flex-direction: column;
     justify-content: center;
