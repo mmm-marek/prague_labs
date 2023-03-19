@@ -54,7 +54,7 @@ export const StyledCheckboxGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
+    @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
         grid-template-columns: repeat(4, 1fr);
     }
 `;
