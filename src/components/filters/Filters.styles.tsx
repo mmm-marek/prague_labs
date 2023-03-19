@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFiltersSection = styled.section`
     display: flex;
-    width: 100vw;
+    width: 100%;
     border-top: 1px solid ${({ theme }) => theme.colors.beige};
     border-bottom: 1px solid ${({ theme }) => theme.colors.beige};
 `;
