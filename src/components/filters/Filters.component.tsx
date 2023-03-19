@@ -111,7 +111,17 @@ export const Filters = ({
                     </StyledInputContainer>
                 </StyledFiltersContainer>
                 <StyledFiltersContainer></StyledFiltersContainer>
-                <StyledFiltersContainer></StyledFiltersContainer>
+                <StyledFiltersContainer>
+                    <StyledLabel>
+                        Okamžitá rezervace
+                        <Icon name="bolt" />
+                    </StyledLabel>
+                    <Dropdown
+                        value={dropdownValue}
+                        options={dropdownOptions}
+                        onChange={(e) => onImmidiateBookingChange(e.value)}
+                    />
+                </StyledFiltersContainer>
             </StyledFilterWrapper>
         </StyledFiltersSection>
     );

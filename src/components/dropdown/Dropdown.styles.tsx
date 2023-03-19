@@ -10,7 +10,8 @@ export const StyledReactDropdown = styled(ReactDropdown)`
     }
 
     .Dropdown-control {
-        width: 11rem;
+        width: 100%;
+        max-width: 11rem;
         height: 3rem;
         border: 1px solid ${({ theme }) => theme.colors.beige};
         border-radius: 0.5rem;
@@ -21,17 +22,20 @@ export const StyledReactDropdown = styled(ReactDropdown)`
     }
 
     .Dropdown-menu {
+        width: 100%;
+        max-width: 11rem;
         margin-top: 0.5rem;
         display: flex;
         gap: 0.25rem;
         position: absolute;
         flex-direction: column;
+        z-index: 10;
     }
 
     .Dropdown-option {
         cursor: pointer;
         padding: 0.5rem;
-        width: 11rem;
+        width: 100%;
         background-color: ${({ theme }) => theme.colors.white};
         border: 1px solid ${({ theme }) => theme.colors.beige};
         border-radius: 8px;
