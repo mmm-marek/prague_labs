@@ -4,6 +4,7 @@ export const StyledCaravanListContainer = styled.div`
     width: 100%;
     display: grid;
     gap: 2rem;
+    padding: 0.625rem 0;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
         grid-template-columns: 1fr 1fr;

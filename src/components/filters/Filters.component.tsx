@@ -5,12 +5,12 @@ import { Icon } from "../icon/Icon.component";
 import { Input } from "../input/Input.component";
 import { Slider } from "../slider/Slider.component";
 import {
-    StyledCheckboxGrid,
-    StyledFilterContainer,
+    StyledFiltersContainer,
     StyledFiltersSection,
-    StyledInputContainer,
+    StyledFilterWrapper,
     StyledLabel,
-    StyledWrapper,
+    StyledInputContainer,
+    StyledCaravanGrid,
 } from "./Filters.styles";
 
 type FiltersProps = {
@@ -83,14 +83,14 @@ export const Filters = ({
 
     return (
         <StyledFiltersSection>
-            <StyledWrapper>
-                <StyledFilterContainer>
+            <StyledFilterWrapper>
+                <StyledFiltersContainer>
                     <StyledLabel>Cena za den</StyledLabel>
                     <Slider
                         min={minPrice}
                         max={maxPrice}
-                        onAfterChange={(value) => onPriceIntervalChange(value)}
                         value={currentPriceInterval}
+                        onAfterChange={(value) => onPriceIntervalChange(value)}
                     />
                     <StyledInputContainer>
                         <Input
@@ -110,10 +110,10 @@ export const Filters = ({
                             value={currentPriceInterval[1]}
                         />
                     </StyledInputContainer>
-                </StyledFilterContainer>
-                <StyledFilterContainer>
+                </StyledFiltersContainer>
+                <StyledFiltersContainer>
                     <StyledLabel>Typ karavanu</StyledLabel>
-                    <StyledCheckboxGrid>
+                    <StyledCaravanGrid>
                         {caravanTypes.map((caravanType) => (
                             <Checkbox
                                 key={caravanType.value}
@@ -126,9 +126,9 @@ export const Filters = ({
                                 }
                             />
                         ))}
-                    </StyledCheckboxGrid>
-                </StyledFilterContainer>
-                <StyledFilterContainer>
+                    </StyledCaravanGrid>
+                </StyledFiltersContainer>
+                <StyledFiltersContainer>
                     <StyledLabel>
                         Okamžitá rezervace
                         <Icon name="bolt" />
@@ -138,8 +138,8 @@ export const Filters = ({
                         options={dropdownOptions}
                         onChange={(e) => onImmidiateBookingChange(e.value)}
                     />
-                </StyledFilterContainer>
-            </StyledWrapper>
+                </StyledFiltersContainer>
+            </StyledFilterWrapper>
         </StyledFiltersSection>
     );
 };
