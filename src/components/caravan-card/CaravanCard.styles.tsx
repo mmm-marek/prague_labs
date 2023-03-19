@@ -2,16 +2,12 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export const StyledCaravanCardContainer = styled.div`
-    width: 21.4rem;
+    width: 100%;
     height: 23.75rem;
     border-radius: 0.5rem;
     border: 1px solid ${({ theme }) => theme.colors.beige};
     overflow: hidden;
     cursor: pointer;
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
-        width: 100%;
-    }
 `;
 
 export const StyledContent = styled.div`
