@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledInput = styled.input`
-    width: 9.75rem;
+    width: 100%;
     height: 3rem;
     border: 1px solid ${({ theme }) => theme.colors.beige};
     border-radius: 0.5rem;
@@ -10,6 +10,10 @@ export const StyledInput = styled.input`
 
     &:focus {
         outline: none;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+        max-width: 9.75rem;
     }
 `;
 
