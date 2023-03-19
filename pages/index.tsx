@@ -126,8 +126,6 @@ const Home = () => {
         return interval.length === 2;
     }
 
-    if (isLoadingCaravans) return <div>Loading...</div>;
-
     return (
         <>
             <Head>
@@ -161,6 +159,8 @@ const Home = () => {
                             numberOfShownCaravans
                         )}
                         onCaravanClick={handleCaravanClick}
+                        isErrorCaravans={isErrorCaravans}
+                        isLoadingCaravans={isLoadingCaravans}
                     />
                 </Container>
                 {numberOfShownCaravans < filteredCaravans.length && (

@@ -14,7 +14,7 @@ export const StyledCaravanListContainer = styled.div`
     }
 `;
 
-export const StyledNoResults = styled.p`
+export const StyledMessage = styled.p`
     width: 100%;
     font-size: 1.5rem;
     text-align: center;
