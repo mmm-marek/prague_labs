@@ -5,7 +5,7 @@ export const LogoContainer = styled.div`
     width: 100%;
     justify-content: center;
 
-    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
         justify-content: flex-start;
     }
 `;
