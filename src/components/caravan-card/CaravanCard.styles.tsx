@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export const StyledCaravanCardContainer = styled.div`
+export const StyledCaravanCardContainer = styled.article`
     width: 100%;
     height: 23.75rem;
     border-radius: 0.5rem;
