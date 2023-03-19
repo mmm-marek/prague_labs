@@ -36,7 +36,6 @@ export const StyledLabel = styled.label`
 export const StyledFiltersContainer = styled.div`
     width: 100%;
     padding: 1.4375rem 1rem;
-    min-height: 10px; // TODO DELETE
     border-bottom: 1px solid ${({ theme }) => theme.colors.beige};
 
     &:last-child {
