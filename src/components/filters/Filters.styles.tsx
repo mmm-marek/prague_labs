@@ -61,4 +61,22 @@ export const StyledFiltersContainer = styled.div`
 export const StyledInputContainer = styled.div`
     display: flex;
     gap: 1rem;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+        flex-direction: column;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+        flex-direction: row;
+    }
+`;
+
+export const StyledCaravanGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 `;

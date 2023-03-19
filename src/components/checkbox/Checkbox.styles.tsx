@@ -4,7 +4,8 @@ export const StyledCheckboxContainer = styled.label`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 9.75rem;
+    width: 100%;
+    max-width: 9.75rem;
     min-height: 5.5rem;
     padding: 0.75rem;
     border-radius: 0.5rem;

@@ -11,7 +11,7 @@ export const StyledReactDropdown = styled(ReactDropdown)`
 
     .Dropdown-control {
         width: 100%;
-        max-width: 11rem;
+        max-width: 12.5rem;
         height: 3rem;
         border: 1px solid ${({ theme }) => theme.colors.beige};
         border-radius: 0.5rem;
@@ -23,7 +23,7 @@ export const StyledReactDropdown = styled(ReactDropdown)`
 
     .Dropdown-menu {
         width: 100%;
-        max-width: 11rem;
+        max-width: 12.5rem;
         margin-top: 0.5rem;
         display: flex;
         gap: 0.25rem;

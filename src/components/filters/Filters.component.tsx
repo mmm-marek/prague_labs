@@ -10,6 +10,7 @@ import {
     StyledFilterWrapper,
     StyledLabel,
     StyledInputContainer,
+    StyledCaravanGrid,
 } from "./Filters.styles";
 
 type FiltersProps = {
@@ -110,7 +111,23 @@ export const Filters = ({
                         />
                     </StyledInputContainer>
                 </StyledFiltersContainer>
-                <StyledFiltersContainer></StyledFiltersContainer>
+                <StyledFiltersContainer>
+                    <StyledLabel>Typ karavanu</StyledLabel>
+                    <StyledCaravanGrid>
+                        {caravanTypes.map((caravanType) => (
+                            <Checkbox
+                                key={caravanType.value}
+                                id={caravanType.value}
+                                title={caravanType.title}
+                                description={caravanType.description}
+                                checked={caravanType.checked}
+                                onChange={() =>
+                                    onCaravanTypeChange(caravanType.value)
+                                }
+                            />
+                        ))}
+                    </StyledCaravanGrid>
+                </StyledFiltersContainer>
                 <StyledFiltersContainer>
                     <StyledLabel>
                         Okamžitá rezervace
